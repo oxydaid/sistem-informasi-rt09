@@ -1,0 +1,243 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.vue';
+@source '../js/**/*.ts';
+
+@theme {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    --color-primary: #003087;
+    --color-primary-hover: #00246B;
+    --color-secondary: #009CDE;
+    --color-surface: #FFFFFF;
+    --color-bg-base: #F5F7FA;
+    --color-text-main: #1A1A2E;
+    --color-text-muted: #687173;
+    --color-border-subtle: #CBD2D6;
+    --color-gold: #F5BA2E;
+    --color-success: #019C34;
+    --color-danger: #D20000;
+}
+
+:root {
+    --font-scale: 1rem;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #F5F7FA;
+    color: #1A1A2E;
+    scroll-behavior: smooth;
+}
+
+/* Senior-Friendly Font Scaling for Public Website */
+body.font-scale-normal {
+    font-size: 1.05rem; /* ~16.8px */
+}
+
+body.font-scale-large {
+    font-size: 1.2rem; /* ~19.2px */
+}
+
+body.font-scale-xlarge {
+    font-size: 1.35rem; /* ~21.6px */
+}
+
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Elevation utilities */
+.shadow-level-1 {
+    box-shadow: 0 1px 4px rgba(0, 48, 135, 0.06);
+}
+
+.shadow-level-2 {
+    box-shadow: 0 4px 16px rgba(0, 48, 135, 0.1);
+}
+
+.shadow-level-3 {
+    box-shadow: 0 12px 32px rgba(0, 48, 135, 0.14);
+}
+
+/* Tiptap Rich Content Prose Styling */
+.prose-tiptap {
+    color: #1A1A2E;
+    line-height: 1.75;
+}
+
+.prose-tiptap p {
+    margin-bottom: 1rem;
+}
+
+.prose-tiptap h1, .prose-tiptap h2, .prose-tiptap h3, .prose-tiptap h4 {
+    color: #003087;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.prose-tiptap h1 { font-size: 2rem; }
+.prose-tiptap h2 { font-size: 1.6rem; border-bottom: 2px solid #E5E9F0; padding-bottom: 0.4rem; }
+.prose-tiptap h3 { font-size: 1.3rem; }
+.prose-tiptap h4 { font-size: 1.1rem; }
+
+.prose-tiptap ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.prose-tiptap ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.prose-tiptap li {
+    margin-bottom: 0.35rem;
+}
+
+.prose-tiptap blockquote {
+    border-left: 4px solid #009CDE;
+    background-color: #F0F7FC;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.25rem 0;
+    font-style: italic;
+    color: #334155;
+}
+
+.prose-tiptap hr {
+    border: none;
+    border-top: 2px solid #CBD2D6;
+    margin: 2rem 0;
+}
+
+.prose-tiptap img, .tiptap-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem auto;
+    box-shadow: 0 4px 16px rgba(0, 48, 135, 0.08);
+}
+
+.prose-tiptap figure.align-center {
+    text-align: center;
+}
+
+.prose-tiptap figure.align-left {
+    text-align: left;
+}
+
+.prose-tiptap figure.align-right {
+    text-align: right;
+}
+
+/* Responsive Table Wrapper (Pure Scroll, No Card Borders) */
+.prose-tiptap .table-responsive-wrapper,
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Tiptap Tables - Clean, direct borders, no card framing */
+.tiptap table,
+.prose-tiptap table,
+table.table-tiptap {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 520px;
+    margin: 0;
+    border: 1px solid #CBD2D6 !important;
+    border-radius: 0 !important;
+}
+
+.tiptap table th,
+.tiptap table td,
+.prose-tiptap table th,
+.prose-tiptap table td,
+table.table-tiptap th,
+table.table-tiptap td {
+    min-width: 2em;
+    border: 1px solid #CBD2D6 !important;
+    padding: 10px 14px;
+    vertical-align: top;
+    box-sizing: border-box;
+    position: relative;
+    text-align: left;
+}
+
+.tiptap table th,
+.prose-tiptap table th,
+table.table-tiptap th {
+    font-weight: 700;
+    text-align: left;
+    background-color: #F1F5F9 !important;
+    color: #003087;
+    border-bottom: 2px solid #94A3B8 !important;
+}
+
+.tiptap table tr:nth-child(even),
+.prose-tiptap table tr:nth-child(even),
+table.table-tiptap tr:nth-child(even) {
+    background-color: #F8FAFC;
+}
+
+.tiptap table .selectedCell:after {
+    z-index: 2;
+    position: absolute;
+    content: "";
+    left: 0; right: 0; top: 0; bottom: 0;
+    background: rgba(0, 156, 222, 0.15);
+    pointer-events: none;
+}
+
+.tiptap table .column-resize-handle {
+    position: absolute;
+    right: -2px;
+    top: 0;
+    bottom: -2px;
+    width: 4px;
+    background-color: #009CDE;
+    pointer-events: none;
+}
+
+/* Attachment Box */
+.tiptap-attachment-box {
+    margin: 1rem 0;
+}
+
+.attachment-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #F0F7FC;
+    border: 1px solid #009CDE;
+    border-radius: 8px;
+    color: #003087;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.attachment-link:hover {
+    background-color: #003087;
+    color: #FFFFFF;
+}
+
+.attachment-size {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
